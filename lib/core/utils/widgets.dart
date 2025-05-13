@@ -10,6 +10,22 @@ const SizedBox kwidth = SizedBox(width: 10);
 
 const SizedBox kwidth20 = SizedBox(width: 20);
 
+// Colors used in
+
+const Color kwhite = Colors.white;
+
+const Color kgrey = Colors.grey;
+
+const Color kgreen = Colors.green;
+
+const Color kred = Colors.red;
+
+const Color kblack = Colors.black;
+
+const Color korange = Colors.orange;
+
+ Color? kgreen400 = Colors.green[400];
+
 class CustomSearchField extends StatelessWidget {
   // ignore: non_constant_identifier_names
   const CustomSearchField({Key? Key}) : super(key: Key);

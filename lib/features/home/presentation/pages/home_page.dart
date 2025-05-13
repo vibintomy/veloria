@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kwhite,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(15),
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.location_on, color: Colors.green),
+                  const Icon(Icons.location_on, color: kgreen),
                   const SizedBox(width: 8),
                   const Text(
                     'ABCD, New Delhi',
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.notifications_none,
-                          color: Colors.red,
+                          color: kred,
                           size: 30,
                         ),
                         Positioned(
@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
                             height: 15,
                             width: 15,
                             decoration: BoxDecoration(
-                              color: Colors.red,
+                              color: kred,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(30),
                               ),
@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
                               child: Text(
                                 '2',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: kwhite,
                                   fontSize: 10,
                                 ),
                               ),
@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
                   Text(
                     'More',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: kgreen,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget {
                 width: 400,
                 height: 200,
                 decoration: BoxDecoration(
-                  color: Colors.green[400],
+                  color: kgreen400,
                   borderRadius: const BorderRadius.all(Radius.circular(3)),
                 ),
                 child: Stack(
@@ -143,7 +143,7 @@ class HomePage extends StatelessWidget {
                           Text(
                             'DISCOUNT\n25% ALL\nFRUITS',
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: kwhite,
                               fontSize: 22,
                               fontWeight: FontWeight.w800,
                             ),
@@ -155,12 +155,12 @@ class HomePage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.zero,
                               ),
-                              backgroundColor: Colors.orange,
+                              backgroundColor: korange,
                             ),
                             onPressed: () {},
                             child: const Text(
                               'CHECK NOW',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color:kwhite),
                             ),
                           ),
                         ],
@@ -181,7 +181,7 @@ class HomePage extends StatelessWidget {
                     'See all',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.green,
+                      color: kgreen,
                     ),
                   ),
                 ],
@@ -211,7 +211,7 @@ class HomePage extends StatelessWidget {
                     'See all',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.green,
+                      color: kgreen,
                     ),
                   ),
                 ],
@@ -226,7 +226,7 @@ class HomePage extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(230, 50),
-                    backgroundColor: Colors.green,
+                    backgroundColor: kgreen,
                     shape: RoundedRectangleBorder(
                       side: BorderSide.none,
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -235,7 +235,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     'View all stores',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: kwhite),
                   ),
                 ),
               ),

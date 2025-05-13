@@ -6,7 +6,7 @@ Container referAndEarn(BuildContext context) {
               height: 100,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: kgreen,
                  borderRadius: BorderRadius.all(Radius.circular(15))
               ),
               child: Stack(
@@ -21,15 +21,15 @@ Container referAndEarn(BuildContext context) {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 20,left: 30),
-                        child: Text('Refer & Earn',style: TextStyle(color: Colors.white,fontSize: 20),),
+                        child: Text('Refer & Earn',style: TextStyle(color: kwhite,fontSize: 20),),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: Row(
                           children: [
-                            Text('Invite your friends  & earn 15% off',style: TextStyle(fontSize: 12,color: Colors.white),),
+                            Text('Invite your friends  & earn 15% off',style: TextStyle(fontSize: 12,color: kwhite),),
                             kwidth,
-                            Icon(Icons.arrow_circle_right,color: Colors.white,size: 12,)
+                            Icon(Icons.arrow_circle_right,color: kwhite,size: 12,)
                           ],
                         ),
                       )

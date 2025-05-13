@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:veloria/core/utils/widgets.dart';
 import 'package:veloria/features/notification/presentation/bloc/notification_bloc.dart';
 import 'package:veloria/features/notification/presentation/bloc/notification_state.dart';
 
@@ -21,11 +22,11 @@ class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kwhite,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: kwhite,
           elevation: 1,
           shadowColor: Colors.grey.withOpacity(0.2),
           leading: Padding(
@@ -35,10 +36,10 @@ class NotificationPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               child: Container(
                 decoration: const BoxDecoration(
-                  color: Colors.green,
+                  color: kgreen,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.arrow_back, color: Colors.white, size: 20),
+                child: const Icon(Icons.arrow_back, color: kwhite, size: 20),
               ),
             ),
           ),
@@ -48,15 +49,16 @@ class NotificationPage extends StatelessWidget {
           ),
           centerTitle: false,
         ),
+        
       ),
       body: BlocBuilder<NotificationBloc, NotificationState>(
         builder: (context, state) {
           if (state is NotificationStateLoading) {
             return const Center(
-              child: CircularProgressIndicator(color: Colors.green),
+              child: CircularProgressIndicator(color: kgreen),
             );
           } else if (state is NotificationStateLoaded) {
-            // Convert raw data to NotificationEntity if needed
+       
             List<NotificationEntity> notifications = state.notification
                 .map((n) => NotificationEntity(
                       title: n.title,
@@ -65,7 +67,7 @@ class NotificationPage extends StatelessWidget {
                     ))
                 .toList();
 
-            // Insert custom notification at position 3
+          
             if (notifications.length >= 3) {
               notifications.insert(
                 3,
@@ -77,7 +79,7 @@ class NotificationPage extends StatelessWidget {
               );
             }
 
-            // Show only first 7
+          
             notifications = notifications.take(7).toList();
 
             return ListView.separated(
@@ -87,45 +89,52 @@ class NotificationPage extends StatelessWidget {
                 final notification = notifications[index];
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
                     children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 12),
-                        child: Image.asset(
-                          getImageForNotification(notification.title),
-                          fit: BoxFit.contain,
-                        ),
+                      kheight20,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                      
+                          Container(
+                            width: 40,
+                            height: 40,
+                            margin: const EdgeInsets.only(right: 12),
+                            child: Image.asset(
+                              getImageForNotification(notification.title),
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                
+                                Text(
+                                  notification.title,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  notification.body,
+                                  style: const TextStyle(fontSize: 12, color: Colors.black87),
+                                ),
+                                const SizedBox(height: 6),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    timeAgo(notification.dateTime),
+                                    style: const TextStyle(fontSize: 10, color: kgrey),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              notification.title,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              notification.body,
-                              style: const TextStyle(fontSize: 12, color: Colors.black87),
-                            ),
-                            const SizedBox(height: 6),
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Text(
-                                timeAgo(notification.dateTime),
-                                style: const TextStyle(fontSize: 10, color: Colors.grey),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
                     ],
                   ),
                 );

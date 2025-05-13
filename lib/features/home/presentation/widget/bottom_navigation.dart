@@ -1,27 +1,28 @@
  import 'package:flutter/material.dart';
+import 'package:veloria/core/utils/widgets.dart';
 
 Container bottomNavigation() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: kwhite,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 1,
             blurRadius: 10,
-            offset: Offset(0, -3), // Negative y-offset to make shadow appear above
+            offset: Offset(0, -3), 
           ),
         ],
       ),
       child: BottomAppBar(
         color: Colors.transparent,
-        elevation: 0, // Set to 0 since we're handling the shadow in the Container
+        elevation: 0, 
         child: SizedBox(
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              // Store icon (colored green to show it's selected)
+         
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -29,14 +30,14 @@ Container bottomNavigation() {
                     'asset/store.png',
                     height: 24,
                     width: 24,
-                    color: Colors.green, // First icon is green
+                    color:kgreen, 
                   ),
                   const SizedBox(height: 4),
                   Text(
                     'Home',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.green,
+                      color: kgreen,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -50,14 +51,14 @@ Container bottomNavigation() {
                     'asset/shopping-basket.png',
                     height: 24,
                     width: 24,
-                    color: Colors.grey,
+                    color: kgrey,
                   ),
                   const SizedBox(height: 4),
                   Text(
                     'Cart',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey,
+                      color: kgrey,
                     ),
                   ),
                 ],
@@ -70,14 +71,14 @@ Container bottomNavigation() {
                     'asset/bag.png',
                     height: 24,
                     width: 24,
-                    color: Colors.grey,
+                    color: kgrey,
                   ),
                   const SizedBox(height: 4),
                   Text(
                     'My Order',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey,
+                      color: kgrey,
                     ),
                   ),
                 ],
@@ -90,14 +91,14 @@ Container bottomNavigation() {
                     'asset/users.png',
                     height: 24,
                     width: 24,
-                    color: Colors.grey,
+                    color: kgrey,
                   ),
                   const SizedBox(height: 4),
                   Text(
                     'Account',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey,
+                      color: kgrey,
                     ),
                   ),
                 ],

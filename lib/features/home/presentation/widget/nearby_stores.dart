@@ -25,7 +25,7 @@ SizedBox nearbyStores(BuildContext context) {
                          Text('4.1'),
                       ],
                     ),
-                    Text('45 mins',style: TextStyle(color: Colors.orange),)
+                    Text('45 mins',style: TextStyle(color: korange),)
                   ],)),
                 Padding(
                   padding: const EdgeInsets.only(left: 100,),
@@ -47,7 +47,7 @@ SizedBox nearbyStores(BuildContext context) {
                     child: Center(child: Text('Top Store',style: TextStyle(fontSize: 9),)),
                   ),
                   Divider(
-                    color: Colors.grey,
+                    color: kgrey,
                   ),
                    Row(
                     children: [

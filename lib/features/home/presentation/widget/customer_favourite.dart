@@ -12,7 +12,7 @@ SizedBox customerFavourite() {
                     width: 295,
                     margin: EdgeInsets.only(right: 5),
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: kblack,
                       borderRadius: BorderRadius.all(Radius.circular(10))
                     ),
                     child: Stack(
@@ -27,13 +27,13 @@ SizedBox customerFavourite() {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Customer favourite \ntop supermarkets',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white),),
+                              Text('Customer favourite \ntop supermarkets',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: kwhite),),
                               Row(
                                 children: [
                                   kheight,
-                                  Text('Explore',style: TextStyle(fontSize: 16,color: Colors.orange),),
+                                  Text('Explore',style: TextStyle(fontSize: 16,color: korange),),
                                   kwidth,
-                                  Icon(Icons.arrow_forward,color: Colors.orange,size: 16,)
+                                  Icon(Icons.arrow_forward,color: korange,size: 16,)
                                 ],
                               )
                             ],
