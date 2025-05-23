@@ -28,6 +28,7 @@ class NotificationPage extends StatelessWidget {
         child: AppBar(
           backgroundColor: kwhite,
           elevation: 1,
+          // ignore: deprecated_member_use
           shadowColor: Colors.grey.withOpacity(0.2),
           leading: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -123,13 +124,15 @@ class NotificationPage extends StatelessWidget {
                                   style: const TextStyle(fontSize: 12, color: Colors.black87),
                                 ),
                                 const SizedBox(height: 6),
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Text(
-                                    timeAgo(notification.dateTime),
-                                    style: const TextStyle(fontSize: 10, color: kgrey),
+                                // Only show time for first 4 items, aligned to the left
+                                if (index < 4)
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      timeAgo(notification.dateTime),
+                                      style: const TextStyle(fontSize: 10, color: kgrey),
+                                    ),
                                   ),
-                                ),
                               ],
                             ),
                           )
@@ -161,7 +164,7 @@ class NotificationPage extends StatelessWidget {
     return 'asset/promotion_nootify.png';
   }
 
-  /// Converts DateTime to time-ago format (e.g. "2 days ago", "57 mins ago")
+
   String timeAgo(DateTime dateTime) {
     final now = DateTime.now();
     final difference = now.difference(dateTime);

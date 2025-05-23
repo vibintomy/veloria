@@ -18,15 +18,27 @@ class NotificationRepoImpl implements NotificationRepository {
           'https://raw.githubusercontent.com/sayanp23/test-api/main/test-notifications.json',
         ),
       );
-      if (response.statusCode == 200) {
-        return compute(parseNotificationJson, response.body);
-      } else {
-        throw Exception(
-          'Failed to fetch notifications. Status: ${response.statusCode}',
-        );
+
+      switch (response.statusCode) {
+        case 200:
+          return compute(parseNotificationJson, response.body);
+        case 400:
+          throw Exception('Bad Request');
+        case 401:
+          throw Exception('Unauthorized');
+        case 403:
+          throw Exception('Forbidden');
+        case 404:
+          throw Exception('Not Found');
+        case 500:
+          throw Exception('Internal Server Error');
+        default:
+          throw Exception(
+            'Failed to fetch notifications. Status: ${response.statusCode}',
+          );
       }
     } catch (e) {
-      print('🚨 Exception caught in fetchNotification: $e');
+      print('Exception caught in fetchNotification: $e');
       rethrow;
     }
   }
@@ -38,7 +50,6 @@ List<NotificationEntity> parseNotificationJson(String body) {
   final List data = jsonData['data'];
   return data.map((item) {
     final model = NotificationModel.fromJson(item);
-
     return NotificationEntity(
       image: model.image,
       title: model.title,
